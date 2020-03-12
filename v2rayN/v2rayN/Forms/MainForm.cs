@@ -1351,11 +1351,6 @@ namespace v2rayN.Forms
         {
             System.Diagnostics.Process.Start(Global.AboutUrl);
         }
-
-        private void tsbPromotion_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start($"{Utils.Base64Decode(Global.PromotionUrl)}?t={DateTime.Now.Ticks}");
-        }
         #endregion
 
         #region ScanScreen

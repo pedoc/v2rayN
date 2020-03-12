@@ -25,11 +25,6 @@ namespace v2rayN
         public const string GFWLIST_URL = "https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt";
 
         /// <summary>
-        /// PromotionUrl
-        /// </summary>
-        public const string PromotionUrl = @"aHR0cHM6Ly8xLjIzNDQ1Ni54eXovYWJjLmh0bWw=";
-
-        /// <summary>
         /// 本软件配置文件名
         /// </summary>
         public const string ConfigFileName = "guiNConfig.json";
