@@ -101,16 +101,6 @@ namespace v2rayN.Properties {
         }
         
         /// <summary>
-        ///   查找 System.Byte[] 类型的本地化资源。
-        /// </summary>
-        internal static byte[] libs {
-            get {
-                object obj = ResourceManager.GetObject("libs", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Bitmap minimize {
@@ -204,6 +194,26 @@ namespace v2rayN.Properties {
             get {
                 object obj = ResourceManager.GetObject("sub", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] sysproxy_exe {
+            get {
+                object obj = ResourceManager.GetObject("sysproxy_exe", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] sysproxy64_exe {
+            get {
+                object obj = ResourceManager.GetObject("sysproxy64_exe", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

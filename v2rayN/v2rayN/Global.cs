@@ -16,6 +16,7 @@ namespace v2rayN
         /// </summary>
         public const string SpeedTestUrl = @"http://speedtest-sgp1.digitalocean.com/10mb.test";
         public const string SpeedPingTestUrl = @"https://www.google.com/generate_204";
+        public const string AvailabilityTestUrl = @"https://www.google.com/generate_204";
 
         /// <summary>
         /// CustomRoutingListUrl
@@ -23,6 +24,11 @@ namespace v2rayN
         public const string CustomRoutingListUrl = @"https://raw.githubusercontent.com/2dust/v2rayCustomRoutingList/master/";
 
         public const string GFWLIST_URL = "https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt";
+
+        /// <summary>
+        /// PromotionUrl
+        /// </summary>
+        public const string PromotionUrl = @"aHR0cHM6Ly85LjIzNDQ1Ni54eXovYWJjLmh0bWw=";
 
         /// <summary>
         /// 本软件配置文件名
@@ -213,6 +219,10 @@ namespace v2rayN
         }
 
         public static Job processJob
+        {
+            get; set;
+        }
+        public static System.Threading.Mutex mutexObj
         {
             get; set;
         }

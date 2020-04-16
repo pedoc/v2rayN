@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using v2rayN.Base;
+using v2rayN.HttpProxyHandler;
+
 
 namespace v2rayN.Mode
 {
@@ -107,13 +109,27 @@ namespace v2rayN.Mode
         }
 
         /// <summary>
-        /// 监听状态 0-not 1-http 2-PAC
+        /// 监听状态
         /// </summary>
-        public int listenerType
+        public ListenerType listenerType
         {
             get; set;
         }
 
+        /// <summary>
+        /// 自定义服务器下载测速url
+        /// </summary>
+        public string speedTestUrl
+        {
+            get; set;
+        }
+        /// <summary>
+        /// 自定义“服务器真连接延迟”测试url
+        /// </summary>
+        public string speedPingTestUrl
+        {
+            get; set;
+        }
         /// <summary>
         /// 自定义GFWList url
         /// </summary>
@@ -139,6 +155,14 @@ namespace v2rayN.Mode
         }
 
         /// <summary>
+        /// 去重时优先保留较旧（顶部）节点
+        /// </summary>
+        public bool keepOlderDedupl
+        {
+            get; set;
+        }
+
+        /// <summary>
         /// 视图刷新率
         /// </summary>
         public int statisticsFreshRate
@@ -154,6 +178,15 @@ namespace v2rayN.Mode
         {
             get; set;
         }
+
+        /// <summary>
+        /// 是否允许不安全连接
+        /// </summary>
+        public string defaultAllowInsecure
+        {
+            get; set;
+        }
+
         /// <summary>
         /// 订阅
         /// </summary>
@@ -273,7 +306,7 @@ namespace v2rayN.Mode
         {
             if (index < 0 || Utils.IsNullOrEmpty(vmess[index].allowInsecure))
             {
-                return true;
+                return Convert.ToBoolean(defaultAllowInsecure);
             }
             return Convert.ToBoolean(vmess[index].allowInsecure);
         }
@@ -362,10 +395,9 @@ namespace v2rayN.Mode
 
         public string getSummary()
         {
-            string summary = string.Empty;
-            summary = string.Format("{0}-", ((EConfigType)configType).ToString());
+            string summary = string.Format("{0}-", ((EConfigType)configType).ToString());
             string[] arrAddr = address.Split('.');
-            string addr = string.Empty;
+            string addr;
             if (arrAddr.Length > 2)
             {
                 addr = $"{arrAddr[0]}***{arrAddr[arrAddr.Length - 1]}";
@@ -419,7 +451,7 @@ namespace v2rayN.Mode
 
         public string getItemId()
         {
-            var itemId = $"{address}{port}{requestHost}{path}";
+            string itemId = $"{address}{port}{requestHost}{path}";
             itemId = Utils.Base64Encode(itemId);
             return itemId;
         }
